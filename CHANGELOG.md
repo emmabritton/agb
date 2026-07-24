@@ -18,6 +18,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added `swap_tiles` to `RegularBackground` and `AffineBackground` for cheaply moving around tiles.
+- `agb-tracker`: You can now stop a track from looping with `set_should_loop`, and check whether a non-looping track has played to the end with `has_finished`.
+- `agb-tracker`: Added `position` and `set_position` to get and set the current playback position within the track.
+- `agb-tracker`: Added `volume` and `set_volume` to get and set a master volume which scales all channel volumes, taking effect immediately even for notes already playing.
+- Added `Mixer::frequency` to get the frequency the mixer was created with, and made `Frequency::frequency` (the value in Hz) public.
+
+### Changed
+
+- `agb-tracker`: The tracker now works with any mixer frequency rather than requiring 32768Hz, so lower mixer frequencies can be used to reduce CPU usage. `Tracker::new` now takes the mixer's frequency as a second argument — pass `mixer.frequency()`.
 
 ### Changed
 
